@@ -382,4 +382,3 @@ $(document).ready(function () {
     filterSystem({ checkIn, checkOut });
   });
 });
-
