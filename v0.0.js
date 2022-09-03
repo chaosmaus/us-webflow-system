@@ -70,10 +70,11 @@ $(document).ready(function () {
           /* console.log("Listing removed: Too many guests."); */
         }
       }
-      geoData = [];
-      console.log("map update");
-      renderMap();
+      
     });
+    geoData = [];
+    console.log("map update");
+    renderMap();
   };
 
   const filterSystem = (formData) => {
@@ -91,7 +92,7 @@ $(document).ready(function () {
   const loadData = () => {
     locationsData.each((index, element) => {
       if ($(`.item:eq(${index})`).hasClass("hidden")) {
-        console.log("property unavailable");
+        //console.log("property unavailable");
       } else {
         geoData.push({
           type: "Feature",
@@ -370,6 +371,7 @@ $(document).ready(function () {
 
   // CLICK BUTTON LISTENER
   $(".submit-button").on("click", () => {
+    map.remove();
     $(".item").removeClass("hidden");
     $(".listings_wrapper").addClass("loading");
     $(".loading-gif").removeClass("hidden");
@@ -380,3 +382,4 @@ $(document).ready(function () {
     filterSystem({ checkIn, checkOut });
   });
 });
+
